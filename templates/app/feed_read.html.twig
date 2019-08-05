@@ -1,10 +1,23 @@
-{% extends '../base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
-
-{% endblock %}
-
-{% block title %}
-
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>{{ feed.title }} <span class="badge badge-pill badge-dark">{{ feed.publisher }}</span></h1>
+            <p>{{ feed.body }}</p>
+            <div class="thumbnail">
+                <img src="{{ feed.image }}">
+            </div>
+            <p>{{ feed.source }}</p>
+            <div class="item-actions">
+                <a href="{{ path('feed_update', { 'id':feed.id }) }}" class="btn btn-sm btn-success" title="Editar">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="{{ path('feed_delete', { 'id':feed.id }) }}" class="btn btn-sm btn-danger" title="Borrar">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 

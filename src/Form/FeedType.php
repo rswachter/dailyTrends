@@ -20,19 +20,19 @@ class FeedType extends AbstractType
 
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Nombre',
+                'label' => 'Titulo',
             ])
             ->add('body', TextareaType::class, [
-                'label' => 'Código',
+                'label' => 'Descripción',
             ])
             ->add('image', TextareaType::class, [
-                'label' => 'Lugar de celebración',
+                'label' => 'Imagen',
             ])
             ->add('source', TextType::class, [
-                'label' => 'Enlace con información',
+                'label' => 'Fuente',
             ])
             ->add('publisher', TextType::class, [
-                'label' => 'Fecha inicio',
+                'label' => 'Periodico',
             ]);
     }
 

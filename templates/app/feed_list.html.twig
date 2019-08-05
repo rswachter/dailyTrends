@@ -15,13 +15,13 @@
                 <td>
                     <div class="item-actions" align="center">
                         <a href="{{ path('feed_read', { 'id':feed.id }) }}" class="btn btn-sm btn-info" title="Leer">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            <i class="fas fa-eye"></i>
                         </a>
-                        <a href="{{ path('feed_update', { 'id':feed.id }) }}" class="btn btn-sm btn-warning" title="Editar">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        <a href="{{ path('feed_update', { 'id':feed.id }) }}" class="btn btn-sm btn-success" title="Editar">
+                            <i class="fas fa-edit"></i>
                         </a>
                         <a href="{{ path('feed_delete', { 'id':feed.id }) }}" class="btn btn-sm btn-danger" title="Borrar">
-                            <i class="fa fa-remove" aria-hidden="true"></i>
+                            <i class="fas fa-trash-alt"></i>
                         </a>
                     </div>
                 </td>
