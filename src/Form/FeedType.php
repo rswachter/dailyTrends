@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form;
+namespace App\Form;
 
 use App\Entity\Feed;
 use Symfony\Component\Form\AbstractType;

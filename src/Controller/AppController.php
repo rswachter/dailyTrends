@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Feed;
-use AppBundle\Form\FeedType;
+use App\Form\FeedType;
 use Doctrine\DBAL\DBALException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,12 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
 class AppController extends AbstractController
 {
     /**
-     * @Route("/app", name="app")
+     * @Route("/", name="app")
      */
-    public function index()
+    public function indexAction()
     {
         return $this->render('app/index.html.twig', [
-            'controller_name' => 'AppController',
         ]);
     }
 
@@ -30,14 +29,14 @@ class AppController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $feeds = $em->getRepository(Feed::class)->findAll();
 
-        return $this->render('feed_list.html.twig', [
+        return $this->render('app/feed_list.html.twig', [
             'feeds' => $feeds
         ]);
     }
 
     /**
      * Create feed
-     * @Route("/tag_new", name="admin_tag_new")
+     * @Route("/feed_new", name="feed_new")
      */
     public function feedNewAction(Request $request)
     {
@@ -57,7 +56,7 @@ class AppController extends AbstractController
                 return $this->redirect($this->generateUrl('feed_list'));
             }
         }
-        return $this->render('feed_new.html.twig', array(
+        return $this->render('app/feed_new.html.twig', array(
             'form' => $form->createView()
         ));
     }
@@ -71,7 +70,7 @@ class AppController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $feed = $em->getRepository(Feed::class)->find($id);
 
-        return $this->render('feed_read.html.twig', [
+        return $this->render('app/feed_read.html.twig', [
             'feed' => $feed
         ]);
     }
@@ -100,7 +99,7 @@ class AppController extends AbstractController
             }
         }
 
-        return $this->render('feed_update.html.twig', [
+        return $this->render('app/feed_update.html.twig', [
             'feed' => $feed,
             'form' => $form->createView()
         ]);
