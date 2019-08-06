@@ -6,6 +6,7 @@ use App\Entity\Feed;
 use App\Form\FeedType;
 use Doctrine\DBAL\DBALException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -15,8 +16,10 @@ class CrudController extends AbstractController
      * Lists all feeds
      * @Route("/feed_list", name="feed_list")
      */
-    public function feedListAction()
+    public function feedListAction(SessionInterface $session)
     {
+        $session->set('foo', 'bar');
+
         $em = $this->getDoctrine()->getManager();
         $feeds = $em->getRepository(Feed::class)->findAll();
 
