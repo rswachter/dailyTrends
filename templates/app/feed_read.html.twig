@@ -8,7 +8,7 @@
             <div class="thumbnail">
                 <img src="{{ feed.image }}">
             </div>
-            <p>{{ feed.source }}</p>
+            <p><a href="{{ feed.source }}" target="_blank">{{ feed.source }}</a></p>
             <div class="item-actions">
                 <a href="{{ path('feed_update', { 'id':feed.id }) }}" class="btn btn-sm btn-success" title="Editar">
                     <i class="fas fa-edit"></i>

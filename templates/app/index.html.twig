@@ -3,5 +3,23 @@
 {% block title %}Daily Trends PHP{% endblock %}
 
 {% block body %}
-
+    <div class="row">
+        {% for feed in feeds %}
+            <div class="col-sm-6">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        {{ feed.publisher }}
+                    </div>
+                    <img src="{{ feed.image }}" class="card-img-top" alt="{{ feed.image }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ feed.title }}</h5>
+                        <p class="card-text">{{ feed.body }}</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="{{ feed.source }}" target="_blank" class="card-link">{{ feed.source }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

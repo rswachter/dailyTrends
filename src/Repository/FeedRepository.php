@@ -22,29 +22,15 @@ class FeedRepository extends ServiceEntityRepository
     // /**
     //  * @return Feed[] Returns an array of Feed objects
     //  */
-    /*
-    public function findByExampleField($value)
+    public function findIndexFeed()
     {
         return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
+            ->andWhere('f.publisher LIKE :elpais OR f.publisher LIKE :elmundo')
+            ->orderBy('f.id', 'DESC')
             ->setMaxResults(10)
+            ->setParameter('elpais', 'El Pais')
+            ->setParameter('elmundo', 'El Mundo')
             ->getQuery()
-            ->getResult()
-        ;
+            ->execute();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Feed
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

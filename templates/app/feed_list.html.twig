@@ -5,6 +5,7 @@
         <thead>
         <tr>
             <th scope="col">Titulo</th>
+            <th scope="col">Periodico</th>
             <th scope="col" class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i> Acciones</th>
         </tr>
         </thead>
@@ -12,6 +13,7 @@
         {% for feed in feeds %}
             <tr>
                 <td>{{ feed.title }}</td>
+                <td>{{ feed.publisher }}</td>
                 <td>
                     <div class="item-actions" align="center">
                         <a href="{{ path('feed_read', { 'id':feed.id }) }}" class="btn btn-sm btn-info" title="Leer">
