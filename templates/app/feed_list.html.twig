@@ -1,20 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if app.session.started and app.session.flashBag.peekAll is not empty %}
-        <div class="messages">
-            {% for type, messages in app.session.flashBag.all %}
-                {% for message in messages %}
-                    <div class="alert alert-dismissible alert-{{ type }}" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-        </div>
-    {% endif %}
+    {{ include('app/_flash_messages.html.twig') }}
     <table id="tag" class="table table-striped table-middle-aligned">
         <thead>
         <tr>

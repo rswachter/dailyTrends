@@ -43,7 +43,7 @@ class CrudController extends AbstractController
             try{
                 $em->persist($feed);
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('success', 'Feed '.$feed->getTitle().' creado');
+                $this->get('session')->getFlashBag()->add('success', 'Noticia '.$feed->getTitle().' creada');
                 return $this->redirect($this->generateUrl('feed_list'));
             }catch (DBALException $e){
                 $this->get('session')->getFlashBag()->add('danger', 'No se ha podido realizar la acción. Error: '. $e->getMessage());
@@ -85,7 +85,7 @@ class CrudController extends AbstractController
             try{
                 $em->persist($feed);
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('success', 'Feed '.$feed->getTitle().' editado');
+                $this->get('session')->getFlashBag()->add('success', 'Noticia '.$feed->getTitle().' editada');
                 return $this->redirect($this->generateUrl('feed_list'));
             }catch (DBALException $e){
                 $this->get('session')->getFlashBag()->add('danger', 'No se ha podido realizar la acción. Error: '. $e->getMessage());
@@ -111,7 +111,7 @@ class CrudController extends AbstractController
             $em->remove($feed);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('success', 'Feed borrado');
+            $this->get('session')->getFlashBag()->add('success', 'Noticia borrada');
 
         }catch (DBALException $e){
             $this->get('session')->getFlashBag()->add('danger', 'No se ha podido realizar la acción. Error: '. $e->getMessage());
